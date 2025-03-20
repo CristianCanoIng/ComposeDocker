@@ -1,0 +1,20 @@
+
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: Tienda
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: "tienda"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+    ports:
+      - "3310:3306"
+    volumes:
+      - C:/Users/canox/OneDrive/Escritorio/Prueba/mysql_data:/var/lib/mysql
+      - ./base.sql:/docker-entrypoint-initdb.d/base.sql
+
+volumes:
+  mysql_data:
